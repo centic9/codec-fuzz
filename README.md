@@ -1,4 +1,4 @@
-This is a small project for fuzzing Apache Commons CLI with the [jazzer](https://github.com/CodeIntelligenceTesting/jazzer) fuzzing tool.
+This is a small project for fuzzing [Apache Commons Codec](https://commons.apache.org/proper/commons-codec/) with the [jazzer](https://github.com/CodeIntelligenceTesting/jazzer) fuzzing tool.
 
 See [Fuzzing](https://en.wikipedia.org/wiki/Fuzzing) for a general description of the theory behind fuzzy testing.
 
@@ -9,7 +9,7 @@ focuses on the following:
 * verify if only expected exceptions are thrown
 * verify any JNI or native code calls 
 
-Apache Commons CLI does not use JNI or native code, therefore the fuzzing target mainly
+Apache Commons Codec does not use JNI or native code, therefore the fuzzing target mainly
 tries to trigger unexpected exceptions.
 
 # How to fuzz
@@ -17,6 +17,10 @@ tries to trigger unexpected exceptions.
 Build the fuzzing target:
 
     ./gradlew shadowJar
+
+If possible, provide a corpus of test-documents in a folder `corpus`. This improves
+fuzzing a lot, both valid encoded documents and slighlty broken ones help the 
+fuzzer to come up with interesting cases.
 
 Download Jazzer from the [releases page](https://github.com/CodeIntelligenceTesting/jazzer/releases), 
 choose the latest version and select the file `jazzer-<os>-<version>.tar.gz`
