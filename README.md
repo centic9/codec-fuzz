@@ -7,10 +7,11 @@ application (unless native code is invoked), Fuzzing of Java-based applications
 focuses on the following:
 
 * verify if only expected exceptions are thrown
-* verify any JNI or native code calls 
+* verify any JNI or native code calls
+* find cases of unbounded memory allocations
 
 Apache Commons Codec does not use JNI or native code, therefore the fuzzing target mainly
-tries to trigger unexpected exceptions.
+tries to trigger unexpected exceptions and unbounded memory allocations.
 
 # How to fuzz
 
