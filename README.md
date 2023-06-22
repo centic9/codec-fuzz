@@ -30,9 +30,17 @@ Unpack the archive:
 
     tar xzf jazzer-*.tar.gz
 
+Create the corpus-directories
+
+    mkdir -p corpus corpusDigest
+
 Invoke the fuzzing:
 
     ./jazzer --cp=build/libs/codec-fuzz-all.jar --instrumentation_includes=org.apache.commons.** --target_class=org.dstadler.codec.fuzz.Fuzz -rss_limit_mb=4096 corpus
+
+Invoke the fuzzing for "digest" package:
+
+    ./jazzer --cp=build/libs/codec-fuzz-all.jar --instrumentation_includes=org.apache.commons.** --target_class=org.dstadler.codec.fuzz.FuzzDigest -rss_limit_mb=4096 corpusDigest
 
 In this mode Jazzer will stop whenever it detects an unexpected exception 
 or crashes.
