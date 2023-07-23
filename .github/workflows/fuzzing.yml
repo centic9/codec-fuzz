@@ -49,4 +49,4 @@ jobs:
       run: tar xzf jazzer-*.tar.gz
 
     - name: Run Fuzzing
-      run: ./jazzer --cp=build/libs/csv-fuzz-all.jar --instrumentation_includes=org.apache.commons.** --target_class=org.dstadler.csv.fuzz.Fuzz -rss_limit_mb=4096 corpus
+      run: ./jazzer --cp=build/libs/codec-fuzz-all.jar --instrumentation_includes=org.apache.commons.** --target_class=org.dstadler.codec.fuzz.Fuzz -rss_limit_mb=4096 corpus
