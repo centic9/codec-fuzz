@@ -21,7 +21,7 @@ import com.code_intelligence.jazzer.api.FuzzedDataProvider;
 /**
  * This class provides a simple target for fuzzing Apache Commons Codec with Jazzer.
  * <p>
- * It uses the fuzzed input data to try to base64 encode/decode data.
+ * It uses the fuzzed input data to trigger classes in the package "digest".
  * <p>
  * It catches all exceptions that are currently expected.
  */
@@ -73,7 +73,7 @@ public class FuzzDigest {
 					break;
 				case 10: {
 					byte[] bytes = data.consumeRemainingAsBytes();
-					//noinspection deprecation
+					//noinspection deprecation,ResultOfMethodCallIgnored
 					MurmurHash3.hash64(bytes);
 					break;
 				}
