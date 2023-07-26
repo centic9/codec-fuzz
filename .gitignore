@@ -4,8 +4,7 @@ build/
 out/
 
 # the downloaded corpus should not be checked in
-corpus/
-corpusDigest/
+corpus*/
 
 # Jazzer and JaCoCo application files
 /jazzer

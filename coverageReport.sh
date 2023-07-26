@@ -53,10 +53,19 @@ mkdir -p build/jacoco
   -rss_limit_mb=4096 \
   -runs=0 \
   corpusDigest
+./jazzer \
+  --cp=build/libs/codec-fuzz-all.jar \
+  --instrumentation_includes=org.apache.commons.** \
+  --target_class=org.dstadler.codec.fuzz.FuzzLanguage \
+  --nohooks \
+  --jvm_args="-javaagent\\:build/jacocoagent.jar=destfile=build/jacoco/corpusLanguage.exec" \
+  -rss_limit_mb=4096 \
+  -runs=0 \
+  corpusLanguage
 
 
 # Finally create the JaCoCo report
-java -jar build/jacococli.jar report build/jacoco/corpus.exec build/jacoco/corpusDigest.exec \
+java -jar build/jacococli.jar report build/jacoco/corpus.exec build/jacoco/corpusDigest.exec build/jacoco/corpusLanguage.exec \
  --classfiles build/codecFiles \
  --sourcefiles /opt/apache/commons-codec/git/src/main/java/ \
  --html build/reports/jacoco
