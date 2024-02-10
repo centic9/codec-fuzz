@@ -55,7 +55,7 @@ See `./jazzer` for options which can control details of how Jazzer operates.
 
 # License
 
-Copyright 2021 Dominik Stadler
+Copyright 2021-2024 Dominik Stadler
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
